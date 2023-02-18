@@ -1,0 +1,100 @@
+pwd: showing current path
+ls: show all files in current path
+ls path : show all the files and dirs in that path
+ls -l *.txt: show all the txt files
+ls -l c*: shows all files starts with c
+ls *.???: shows all the file that ends with . and 3 letter after it
+cd /: change the path to root
+cd .. : go back one step back in the path
+top : showing all the procces
+ps ax: showing all the precces
+pa ax | filename : showing all the proecess for the file name
+whoami : shows your username
+man command : show description of the command
+clear : clear the terminal screen
+ctrl + l : it just do like clear
+mkdir dirname : create diroctory named dirname
+mkdir nature/tree : make tree dir inside of nature dir
+mkdir -p nature/air/cloud : make air dir and inside of air dir it will makes cloud dir we use -p becuase /air does not exist at first
+touch filename : it will create file
+rmdir dirname : delete empty dir
+rm file: delete file
+rm -v file: delete file and show deleted file in the teminal
+rm -r dirname: deleted full directory
+rm -i: it will asks before deleting
+open filename : open file or dir
+mv filename new name: rename the file name
+mv filename path : will move the file to the path
+cp filename path : copy the file
+cp filename new name : copy the file in the current path with new name
+cp -r dirname: copy entire dir
+head filename: it will show first 10 line of a file
+head filename -n 100: it will show first 100 line of a file
+tail filename -n 100 : it will show last 100 lines of the file
+date: shows current date and time
+cat filename : prints the content of that file
+cat filename1 filename2 filename3 > newfile: it will combine 3 files and put them in the newfile
+less filename : it is like cat but does not show all the content at the same time
+more filename: it is like last commands
+wc filename : it shows number of line, number of words, and bytes
+ls -l | wc : shows number of results in ls
+sort filename: it will sort the out put and prints in the terminal if we want to sort base on number we must use -h
+touch {a,b,c}.txt: it will makes a.txt, b.txt, c.txt
+echo {1..99}: will print 1 to 99
+diff file1 flle2: shows the diffrence between 2 files
+find . -type d -name '*E*' : . means this directory type -d means type must be directory and the last part is it must contains E in their name
+find -name 'com*' : shows all files starts with com
+find -type f -size +20M: shows all files (not dirs) which their size is more than 20 megabyte
+grep text filename: it will find text inside of filename
+du file name : shows size of the file
+du | sort -h | tail: shows 10 biggest large file
+history: shows all the commands you enter with the id and if you want to repeat the command you can type !id_number
+gzip -k filename: compress file and keep the original file
+gunzip filename.gz: will unzip the file, we can use gzip -d filename.gz
+gzip file1 file2 file3: it does not combine all 3 files and it just compress 3 different files
+tar -cf archive.tar file1 file2 file3: it combines 3 files but does not compress all of it in archive.tar(it means the size does not change), after we use this command we need to compress file with gzip command
+tar -czf archive.tar.gz file1 file2: it create archive and combine file and compress them , it does tar -cf and gzip the same time
+man
+tar -xf archive.tar : it will unzip the file
+alias myls='ls -la': it will create an alias for ls -la and it is gone after you terminate the terminal if you want to submit it for ever you need to edit ~/.zshrc file
+
+cat file_list | xargs rm: it will read the file list and pass the argument to the rm command
+find . -size + 1M | xargs ls -la
+
+sudo chown username filename: it change the file name owner
+
+ifconfig: shows some detail
+ip address
+
+finger username: gives some info about user
+whatis command: it gives info about the command
+
+zip file.zip file1.txt file2.txt: zip the files
+unzip file.zip: unzip the file
+cmp file1.txt file2.txt: it compare 2 files and if they are not same it show an error
+chmod +x filename: it change the file and make it executable
+chown username file: change the owner of the file
+netstat: shows what ports are open on my linux
+uname -a: info about my linux	
+neofetch : full info about system
+free: shows the space usage
+df -H : shows the space usage
+sudo apt remove nano: remove nano from the system
+
+mkdir test ; cd test ; echo how are you >> test.txt:  it execute all commands one by one, if one of the commands fail other commands will executed
+mkdir test && cd test && echo how are you >> test.txt:  it execute all commands one by one, if one of the commands fail other commands will not executed
+mkdir test || echo "how are you": just one of the commands will execute
+
+# creating and managing users:
+useradd -m amirmahdi: it is stored in /etc/passwd
+usermod -s /bin/bash amirmahdi: change the shell for amirmahdi
+passwords are stored in /etc/shadow
+userdel amirmahdi: remove amirmahdi
+adduser amirmahdi: it allows you to set password for amirmahdi
+usermod -G developers amirmahdi: add amirmahdi to developers group
+
+# creating and managing group:
+groupadd developers: make a group named developers and all groups are stored in cat /etc/group
+groups amirmahdi: shows all groups for amirmahdi
+
+chmod u+x filename: make file executable for u(user), we can use o(others) to make file executable for anyone

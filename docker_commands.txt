@@ -1,0 +1,7 @@
+docker ps : see the running containers or processes 
+
+docker run -it name_of_the_image: start a container from an image
+docker run -it name_of_the_image sh: start a container from an image with sh
+
+docker build -t react-app .: creating image -t --> for tagging the image, . --> where it can find Dockerfile --> . means current dir
+docker images | docker image ls : shows all the images we have build
