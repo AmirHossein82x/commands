@@ -4,4 +4,23 @@ docker run -it name_of_the_image: start a container from an image
 docker run -it name_of_the_image sh: start a container from an image with sh
 
 docker build -t react-app .: creating image -t --> for tagging the image, . --> where it can find Dockerfile --> . means current dir
+
+docker build -t react-app:3.6.1 : creating image -t --> for tagging the image, . --> where it can find Dockerfile --> . means current dir and 3.6.1 is TAG "we use this when we want to tag an image while creating it"
+
+docker image tag react-app:image-id react-app:3.6.9 : in this way we tag an image after we build it or we can use the blow way
+docker image tag <id of image> react-app:latest
+
 docker images | docker image ls : shows all the images we have build
+
+docker image prune
+docker container prune
+
+docker image rm <name of the image > | <id of a image>
+docker image remove react-app:3.6.1: removes the image with the tag
+
+docker image tag <image id> amirhosseinx82/react-app:3.6.9 : create new image with this name <amirhosseinx82/react-app:3.6.9> and prepare to push
+docker push amirhosseinx82/react-app:3.6.9
+
+# sharing image without dockerhub
+docker image save -o react-app.tar react-app:3 : we compress file
+docker image load -i react-app.tar : we load the Docker file

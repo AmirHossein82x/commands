@@ -98,3 +98,8 @@ groupadd developers: make a group named developers and all groups are stored in 
 groups amirmahdi: shows all groups for amirmahdi
 
 chmod u+x filename: make file executable for u(user), we can use o(others) to make file executable for anyone
+
+print environment variable:
+1: printenv
+2: printenv <the specefic variable we are looking for>
+3: echo $<the specefic variable we are looking for>	
