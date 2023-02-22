@@ -7,6 +7,8 @@ docker run react-app: it will start a container with the default command
 docker run -d react-app: it will start container with the default command but it will be in the background with a random name
 docker run -d --name blue-sky react-app: it is like above command and it's name gonna be blue-sky
 docker run -d -p 80:3000 --name blue-sky react-app: runs the container and open the 80 port in host(we can see the server on localhost:80)
+docker run -d -p 80:3000 -v app-data:/app/data react-app: start container with volume (-v) app-data in the /app/data directory: if we delete this container /app/data still remians
+docker run -d -p 5001:3000 -v $(pwd):/app react-app : in this way if we change the files in the computer , the container will change too.
 
 docker exec -it <container name> sh: run a command in the existing container
 
@@ -41,3 +43,12 @@ docker logs <container id>: shows the log of the container
 docker logs -f <container id>: shows the log of the container and it just update the log on the same time
 docker logs -n 5 <container id: shows the 5 last line of the log
 docker logs -t <container id>: shows the log with the time
+
+docker volume create app-data: create volume and the name is app-data
+docker volume inspect app-data: shows detail of app-data volume
+
+docker cp <container id>:/app/logs.txt . : copy logs.txt in to the host 
+docker cp secrect.txt <container id>:/app: copy secrect.txt in to the container
+
+docker image rm $(docker image ls -q): removes all the images
+docker container rm -f $(docker container ls -a -q): removes all the containers
