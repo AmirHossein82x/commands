@@ -11,7 +11,7 @@ docker run -d -p 80:3000 -v app-data:/app/data react-app: start container with v
 docker run -d -p 5001:3000 -v $(pwd):/app react-app : in this way if we change the files in the computer , the container will change too.
 
 docker exec -it <container name> sh: run a command in the existing container
-docker exec -it -u root <container name> sh: run a command inside of container inside of a container as root user
+docker exec -it -u root <container name> sh: run a command inside of container as root user
 
 docker stop <container name>: stop the container
 docker start <container name>: start the container
@@ -54,8 +54,11 @@ docker cp secrect.txt <container id>:/app: copy secrect.txt in to the container
 docker image rm $(docker image ls -q): removes all the images
 docker container rm -f $(docker container ls -a -q): removes all the containers
 
+docker compose build: create images from docker-compose.yml
 docker compose up -d: run container in the background
 docker compose ps: see all the container relevant to this application
 docker compose down: remove all the container for the application but not images
 docker compose logs:shows all the logs we can use -f for following the log output
 docker logs <container id>: shows all the logs for the specefic conntainer
+
+docker network ls: shows all the network the this machine
