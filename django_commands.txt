@@ -1,0 +1,14 @@
+python manage.py runserver 9000: if we do not specify a port , the default port is 8000
+django-admin startproject config .: first thing to do when creating django project
+python manage.py startapp app1: create an app for the project which name is app1
+python manage.py makemigrations app1: if we do not specify app1 , the command will execute for all the apps in the project
+python manage.py migrate: migrate table of the database 
+python manage.py createsuperuser: create super user
+python manage.py changepassword admin : if you forgot the password of the admin user you can change the password with this command
+python manage.py test: test all the test you write in the test.py
+django-admin makemessages -l fa: translation
+django-admin compilemessages: translation
+
+# we can change the header name in the admin panel with this command 
+admin.site.site_header = 'store front'    --> add this line to config/urls.py
+admin.site.index_title = 'Admin'  --> change the text down the header
