@@ -12,3 +12,31 @@ django-admin compilemessages: translation
 # we can change the header name in the admin panel with this command 
 admin.site.site_header = 'store front'    --> add this line to config/urls.py
 admin.site.index_title = 'Admin'  --> change the text down the header
+
+# using environment variable
+1: pip install "environs[django]"
+2: add these 3 lines to settings.py 
+""""
+from environs import Env
+env = Env()
+env.read_env()
+
+"""""
+now you can use env in any place you want for exxample use env("DJANGO_SECRET_KEY") instead of secret key but you must define DJANGO_SECRET_KEY in the docker-compose.yml
+
+
+celery -A config worker --loglevel=info: running celery       "config is name of the startapp in django"
+celery -A config beat: running celery beat             
+celery -A config flower: running flower to see the interface of the celery tasks and it is avalilable in localhost:5555
+CELERY_BROKER_URL = 'redis://localhost:6379/1'  put this line in the settings.py
+
+CELERY_BEAT_SCHEDULE = {
+     'notify_customers':{
+         'task': 'store.tasks.notify_customers',
+         'schedule': crontab(day_of_week=1, hour=7, minute=30),  # executed every monday aat 7:30
+         'schedule': crontab(minute='*/15'),  # executed every 15 minutes
+         'schedule': 5,  # executed every 5 seconds,
+         'args': ['hello world'],
+         'kwargs': {}
+     },
+}
