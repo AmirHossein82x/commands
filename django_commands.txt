@@ -28,6 +28,7 @@ now you can use env in any place you want for exxample use env("DJANGO_SECRET_KE
 celery -A config worker --loglevel=info: running celery       "config is name of the startapp in django"
 celery -A config beat: running celery beat             
 celery -A config flower: running flower to see the interface of the celery tasks and it is avalilable in localhost:5555
+docker run -d -p 6379:6379 redis : pulling redis image from docker hub and run it as contanier
 CELERY_BROKER_URL = 'redis://localhost:6379/1'  put this line in the settings.py
 
 CELERY_BEAT_SCHEDULE = {
