@@ -1,0 +1,4 @@
+npm create vite@4.1.0   --> create react folder
+cd react-app  
+npm install  --> install  all dpendencies
+npm run dev  --> see react on localhost
