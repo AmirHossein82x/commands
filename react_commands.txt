@@ -2,3 +2,23 @@ npm create vite@4.1.0   --> create react folder
 cd react-app  
 npm install  --> install  all dpendencies
 npm run dev  --> see react on localhost
+npm i bootstrap@5.2.3  --> install bootstrap
+npm i styled-components@5   --> for styling using css in js
+npm i @types/styled-components  --> to remove warning import for styled-components
+npm i react-icons@4.7.1
+npm i immer@9.0.19    --> for updating arrays objects, ...
+
+npm i react-hook-form
+npm i zod
+npm i @hookform/resolvers
+npm i axios@1.3.4
+
+npm i @tanstack/react-query@4.28
+npm i @tanstack/react-query-devtools@4.28
+
+npm i ms
+npm i @types/ms
+
+
+npm i zustand
+npm i react-router-dom@6.10.0
