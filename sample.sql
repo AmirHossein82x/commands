@@ -3,7 +3,7 @@ CREATE TABLE User (
   id INT AUTO_INCREMENT PRIMARY KEY,
   first_name VARCHAR(20) NOT NULL,
   last_name VARCHAR(20) NOT NULL,
-  email VARCHAR(319) UNIQUE
+  email VARCHAR(319)
 );
 
 insert into User (first_name, last_name, email) values ('mohammad taha', 'abbasi', null);
@@ -18,11 +18,22 @@ CREATE TABLE City (
   title VARCHAR(120) NOT NULL
 );
 
+
 INSERT INTO City (title) VALUES ('gharchack');
 INSERT INTO City (title) VALUES ('varamin');
 INSERT INTO City (title) VALUES ('tehran');
 
-select * from City;
+CREATE TABLE Permission (
+  id INT PRIMARY KEY AUTO_INCREMENT,
+  title VARCHAR(120) NOT NULL
+);
+
+INSERT INTO Permission (title) VALUES ('can buy product');
+INSERT INTO Permission (title) VALUES ('can create comment');
+INSERT INTO Permission (title) VALUES ('can delete product');
+INSERT INTO Permission (title) VALUES ('can cancel order');
+
+-- select * from City;
 
 
 CREATE TABLE Profile (
@@ -44,6 +55,40 @@ INSERT INTO Profile (user_id, age, phone_number, city_id) VALUES (3, 16, '091245
 INSERT INTO Profile (user_id, age, phone_number, city_id) VALUES (2, 16, '09333467898', 1);
 
 -- select * from Profile join User on (Profile.user_id= User.id);
+
+
+CREATE TABLE Profile_Permission (
+  id INT PRIMARY KEY AUTO_INCREMENT,
+  profile_id INT NOT NULL,
+  permission_id INT NOT null
+  
+  
+);
+
+INSERT INTO Profile_Permission (profile_id, permission_id) VALUES (3, 1);
+INSERT INTO Profile_Permission (profile_id, permission_id) VALUES (3, 2);
+INSERT INTO Profile_Permission (profile_id, permission_id) VALUES (3, 3);
+INSERT INTO Profile_Permission (profile_id, permission_id) VALUES (3, 4);
+
+INSERT INTO Profile_Permission (profile_id, permission_id) VALUES (2, 1);
+INSERT INTO Profile_Permission (profile_id, permission_id) VALUES (2, 2);
+
+INSERT INTO Profile_Permission (profile_id, permission_id) VALUES (4, 1);
+INSERT INTO Profile_Permission (profile_id, permission_id) VALUES (4, 2);
+
+INSERT INTO Profile_Permission (profile_id, permission_id) VALUES (5, 1);
+INSERT INTO Profile_Permission (profile_id, permission_id) VALUES (5, 2);
+
+
+INSERT INTO Profile_Permission (profile_id, permission_id) VALUES (1, 1);
+INSERT INTO Profile_Permission (profile_id, permission_id) VALUES (1, 2);
+INSERT INTO Profile_Permission (profile_id, permission_id) VALUES (1, 4);
+
+
+
+
+
+
 
 CREATE TABLE Category (
   id INT PRIMARY KEY AUTO_INCREMENT,
@@ -77,6 +122,45 @@ INSERT INTO Product (category_id, title, price) VALUES (1, 'badminton', 5000);
 INSERT INTO Product (category_id, title, price) VALUES (3, 'art', 3000);
 INSERT INTO Product (category_id, title, price) VALUES (3, 'science', 1000);
 INSERT INTO Product (category_id, title, price) VALUES (2, 'watch', 2000);
+
+CREATE TABLE Comment (
+  id INT PRIMARY KEY AUTO_INCREMENT,
+  profile_id INT NOT NULL,
+  product_id INT NOT NULL,
+  text Text,
+  date_created DATE,
+  FOREIGN KEY (profile_id) REFERENCES Profile(id),
+  FOREIGN KEY (product_id) REFERENCES Product(id)
+);
+
+
+INSERT INTO Comment (profile_id, product_id, text, date_created) VALUES (4, 5, 'ey vay', '2024-08-13');
+INSERT INTO Comment (profile_id, product_id, text, date_created) VALUES (1, 2, 'jaleb nist', '2024-02-03');
+
+INSERT INTO Comment (profile_id, product_id, text, date_created) VALUES (2, 2, 'khoob', '2024-05-22');
+
+INSERT INTO Comment (profile_id, product_id, text, date_created) VALUES (1, 1, 'jaleb nist', '2024-01-05');
+INSERT INTO Comment (profile_id, product_id, text, date_created) VALUES (3, 3, 'jaleb hast', '2024-10-13');
+INSERT INTO Comment (profile_id, product_id, text, date_created) VALUES (3, 4, 'khoob', '2024-9-11');
+INSERT INTO Comment (profile_id, product_id, text, date_created) VALUES (2, 1, 'khoob', '2024-05-22');
+
+INSERT INTO Comment (profile_id, product_id, text, date_created) VALUES (4, 6, 'nice nist', '2024-01-01');
+
+INSERT INTO Comment (profile_id, product_id, text, date_created) VALUES (5, 7, 'jalebeh', '2024-01-01');
+
+INSERT INTO Comment (profile_id, product_id, text, date_created) VALUES (2, 9, 'bad', '2024-9-11');
+INSERT INTO Comment (profile_id, product_id, text, date_created) VALUES (1, 9, 'khoobe ', '2024-08-13');
+INSERT INTO Comment (profile_id, product_id, text, date_created) VALUES (3, 2, 'the worst', '2024-9-11');
+INSERT INTO Comment (profile_id, product_id, text, date_created) VALUES (2, 10, 'good', '2024-10-13');
+INSERT INTO Comment (profile_id, product_id, text, date_created) VALUES (1, 9, 'behtarin', '2024-01-01');
+INSERT INTO Comment (profile_id, product_id, text, date_created) VALUES (5, 7, 'bah bah', '2024-08-13');
+
+INSERT INTO Comment (profile_id, product_id, text, date_created) VALUES (3, 4, 'bad', '2024-9-11');
+INSERT INTO Comment (profile_id, product_id, text, date_created) VALUES (1, 7, 'the worst', '2024-9-11');
+INSERT INTO Comment (profile_id, product_id, text, date_created) VALUES (3, 3, 'the best', '2024-10-13');
+
+INSERT INTO Comment (profile_id, product_id, text, date_created) VALUES (3, 1, 'good', '2024-10-13');
+INSERT INTO Comment (profile_id, product_id, text, date_created) VALUES (2, 8, 'the best', '2024-10-13');
 
 
 select * from Product;
@@ -128,7 +212,9 @@ INSERT INTO OrderItem (order_id, product_id, quantity, price) VALUES (5, 1, 1, 2
 INSERT INTO OrderItem (order_id, product_id, quantity, price) VALUES (5, 9, 1, 5000);
 
 
-SELECT COUNT(*)
-FROM `Order` AS p
-JOIN OrderItem ON p.id = OrderItem.order_id group by (order_id);
+-- SELECT COUNT(*)
+-- FROM `Order` AS p
+-- JOIN OrderItem ON p.id = OrderItem.order_id group by (order_id);
+
+select * from Comment;
 
