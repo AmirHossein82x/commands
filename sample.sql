@@ -11,7 +11,7 @@ insert into User (first_name, last_name, email) values ('sajad', 'barkhordari','
 insert into User (first_name, last_name, email) values ('mohammad parsa', 'mohammadi', 'mohammadi@gmail.com');
 insert into User (first_name, last_name, email) values ('danial', 'hazari', null);
 insert into User (first_name, last_name, email) values ('kamyar', 'karimi', null);
-select * from User;
+-- select * from User;
 
 CREATE TABLE City (
   id INT PRIMARY KEY AUTO_INCREMENT,
@@ -163,7 +163,7 @@ INSERT INTO Comment (profile_id, product_id, text, date_created) VALUES (3, 1, '
 INSERT INTO Comment (profile_id, product_id, text, date_created) VALUES (2, 8, 'the best', '2024-10-13');
 
 
-select * from Product;
+-- select * from Product;
 
 CREATE TABLE `Order` (
   id INT PRIMARY KEY AUTO_INCREMENT,
@@ -216,5 +216,5 @@ INSERT INTO OrderItem (order_id, product_id, quantity, price) VALUES (5, 9, 1, 5
 -- FROM `Order` AS p
 -- JOIN OrderItem ON p.id = OrderItem.order_id group by (order_id);
 
-select * from Comment;
+-- select * from Comment;
 
