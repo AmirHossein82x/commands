@@ -1,0 +1,19 @@
+# install fast-api
+pip install fastapi
+
+# install uvicorn for server and run project
+pip install uvicorn
+
+# run project
+uvicorn main:app --reload    # main is name of file you wanna run and app is name of object you create in main file | you must use --reload in development mode
+uvicorn main:app --host 0.0.0.0 --port 80     # you can specify detail
+
+
+# see the document for project
+http://127.0.0.1:8000/docs
+
+
+# install json formatter for chrome to see the json better
+
+
+
