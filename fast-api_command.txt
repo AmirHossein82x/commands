@@ -15,5 +15,15 @@ http://127.0.0.1:8000/docs
 
 # install json formatter for chrome to see the json better
 
-
-
+pip install python-dotenv   ---> for reading env file
+pip install pydantic-settings  --> for reading env file
+pip install "databases[aiosqlite]"   --> intract with db
+pip install rich  --> make log beautifull
+pip install asgi-correlation-id  --> makes id for each request 
+pip install python-json-logger --> change the schema of logg file to json
+pip install python-jose --> for creating jwt
+pip install python-multipart   --> recieveing form data in fast api
+pip install "passlib[bcrypt]"
+pip install pytest-mock
+pip install aiofiles  --> working with files
+pip install b2sdk  --> third party storage for saving files in storage
